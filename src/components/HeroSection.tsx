@@ -51,7 +51,7 @@ const HeroSection = ({
           />
 
           <Link
-            href={process.env.RESUME_LINK as string}
+            href={(process.env.RESUME_LINK as string) || "https://drive.google.com/file/d/1zI6jC8b5VVV_0l84DFfxniXc1wJfCT_E/view?usp=sharing"}
             target="_blank"
             rel="noopener noreferrer"
             className="border border-text-muted p-2 rounded-xl border-dotted font-bold"

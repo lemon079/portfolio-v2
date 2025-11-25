@@ -21,13 +21,13 @@ export default function AboutMePage() {
 
         <div className="prose prose-invert mx-auto mt-10 text-gray-300">
           <p>
-            Hello! I'm Bilal Tahir, a passionate Full Stack Developer with a knack for building beautiful, high-performance web applications.
+            I’m Bilal Tahir, a 21-year-old BSCS student currently in my 6th semester, dedicated to building a strong career in full-stack development and modern software engineering. Alongside my university studies, I’ve been consistently self-learning and working on real projects to strengthen my technical abilities.
           </p>
           <p>
-            My journey in web development started with a curiosity for how things work on the internet, which quickly turned into a career obsession. I specialize in the React ecosystem, particularly Next.js, and I love exploring new technologies to solve real-world problems.
+            Outside of development, I enjoy calisthenics and reading self-improvement books, both of which help me maintain discipline, clarity, and balance in my daily life.
           </p>
           <p>
-            When I'm not coding, you can find me exploring new design trends, contributing to open source, or learning about the latest advancements in AI and tech.
+            I approach my career with independence and accountability, taking initiative in my learning and consistently exploring new technologies that can elevate my skillset and work quality.
           </p>
           <p className="italic text-center mt-8 text-text-muted">
             More updates soon...
