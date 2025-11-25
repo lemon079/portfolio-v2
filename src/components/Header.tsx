@@ -3,6 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { Info } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export default function Header() {
   const pathname = usePathname();
@@ -30,6 +37,18 @@ export default function Header() {
               </Link>
             </li>
           ))}
+          <li>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Info className="w-5 h-5 text-gray-400 hover:text-white transition-colors cursor-help" />
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Website is not responsive yet</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          </li>
         </ul>
       </nav>
     </header>
