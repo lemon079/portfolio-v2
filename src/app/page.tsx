@@ -1,66 +1,36 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import HeroSection from "@/components/HeroSection";
+import TechStack from "@/components/TechStack";
+import SectionContent from "@/components/SectionContent";
+import ProjectCard from "@/components/ProjectCard";
+import projects from "../../projects.js";
 
-export default function Home() {
+const page = () => {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="pt-20 space-y-20">
+      <HeroSection
+        imageUrl="/pfp-animated.png"
+        name="Bilal Tahir"
+        title="Full stack developer"
+        description="I apply rigorous critical thinking to design scalable, reliable systems, and I continuously upskill to stay relevant in the rapidly evolving AI landscape."
+      />
+
+      <TechStack title="Technologies and Tools" />
+
+      <SectionContent title="Work Experience">
+        i dont have any job work experience, but i have been developing stuff
+        since the start of my university (2022) i&apos;d say. Hoping to fill
+        this section alot real soon.
+      </SectionContent>
+
+      <SectionContent title="Personal Projects">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {projects.map((project, idx) => (
+            <ProjectCard key={`project-${idx + 1}`} {...project} />
+          ))}
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </SectionContent>
     </div>
   );
-}
+};
+
+export default page;
