@@ -8,7 +8,7 @@ const page = () => {
   return (
     <div className="pt-20 space-y-20">
       <HeroSection
-        imageUrl="/pfp-animated.png"
+        imageUrl="/pfp-animated.svg"
         name="Bilal Tahir"
         title="Full stack developer"
         description="I apply rigorous critical thinking to design scalable, reliable systems, and I continuously upskill to stay relevant in the rapidly evolving AI landscape."
