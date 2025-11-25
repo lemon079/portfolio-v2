@@ -38,12 +38,12 @@ export default function Header() {
             </li>
           ))}
           <li>
-            <TooltipProvider>
+            <TooltipProvider delayDuration={0}>
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Info className="w-5 h-5 text-gray-400 hover:text-white transition-colors cursor-help" />
                 </TooltipTrigger>
-                <TooltipContent>
+                <TooltipContent className="bg-text-muted z-60 text-black font-semibold">
                   <p>Website is not responsive yet</p>
                 </TooltipContent>
               </Tooltip>
