@@ -24,6 +24,9 @@ export const metadata: Metadata = {
     description: "Crafting beautiful, high-performance web experiences",
     type: "website",
   },
+  icons: {
+    icon: "/pfp-animated.svg",
+  },
 };
 
 export default function RootLayout({
