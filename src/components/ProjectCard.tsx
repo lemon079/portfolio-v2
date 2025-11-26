@@ -63,13 +63,13 @@ export default function ProjectCard({
                 left-1/2 
                 -bottom-20
                 -translate-x-1/2
-                object-cover
+                object-contain
                 w-[85%]
                 h-full
                 transition-all
                 duration-500
                 ease-out
-                rotate-3
+                rotate-10
                 scale-95
                 group-hover:rotate-0
                 group-hover:-bottom-10
@@ -113,7 +113,7 @@ export default function ProjectCard({
               {technologies.slice(0, 3).map((tech) => (
                 <span
                   key={tech}
-                  className="px-2 py-1 text-[10px] font-medium bg-secondary/50 text-secondary-foreground rounded-md border border-border/50"
+                  className="px-2 py-1 text-[10px] font-medium bg-secondary/50 text-secondary-foreground rounded-md border-2 border-dotted border-text-muted/30"
                 >
                   {tech}
                 </span>

@@ -47,8 +47,8 @@ const projects = [
   {
     slug: "threads-clone",
     heading: "Threads 2.0",
-    subheading: "Real-time Fullstack Social Network",
-    description: "A robust full-stack clone of the popular Threads application, engineered to handle real-time social interactions at scale. This application features a complete authentication system, nested threaded comments, image uploads, and real-time activity feeds. Built on the MERN stack (MongoDB, Express, React, Node.js), it leverages Socket.io to push updates instantly to connected clients, ensuring that likes, replies, and new posts appear immediately without requiring a page refresh.",
+    subheading: "Fullstack Social Network",
+    description: "A robust full-stack clone of the Threads application, engineered to support smooth social interactions. The application includes authentication, nested threaded comments, image uploads, and dynamic activity feeds. Built on the MERN stack (MongoDB, Express, React, Node.js), it uses Next.js Server Actions and route revalidation to keep the UI up to date after user interactions. Whenever users create posts, like content, or reply to threads, the interface refreshes with the latest data through controlled re-fetching instead of persistent WebSocket connections.",
     imgSrc: "/threads.webp",
     href: "https://thread-112.vercel.app",
     github: "https://github.com/lemon079/thread-clone",
@@ -63,6 +63,28 @@ const projects = [
       "Mastered the aggregation pipeline in MongoDB for complex data retrieval relationships.",
       "Learned how to implement webhooks and authentication using clerk.",
       "Fully understood when to use client components and when to use server components."
+    ]
+  },
+  {
+    slug: "realtime-chat-application",
+    heading: "Real-Time Chat Application",
+    subheading: "Full-Stack Messaging Platform",
+    description: "A modern, full-stack real-time messaging platform built with the PERN stack (PostgreSQL, Express, React, Node.js). Features secure JWT authentication, real-time private and group messaging powered by Socket.IO, and a beautiful, responsive UI built with React and Tailwind CSS. Demonstrates proficiency in building scalable WebSocket applications with modern web technologies.",
+    imgSrc: "/chat-2.png",
+    href: "#",
+    github: "https://github.com/lemon079/chat-app",
+    technologies: ["React 19", "TypeScript", "Node.js", "Express", "PostgreSQL", "Socket.IO", "Tailwind CSS", "NeonDB"],
+    challenges: [
+      "Implementing real-time bidirectional communication with Socket.IO for instant messaging.",
+      "Designing a scalable database schema for chat rooms, messages, groups, and user relationships.",
+      "Managing complex state synchronization between multiple connected clients.",
+      "Implementing secure JWT authentication with HTTP-only cookies and session management."
+    ],
+    keyLearnings: [
+      "Deep understanding of WebSocket protocols and real-time event-driven architecture.",
+      "Mastered full-stack TypeScript development with type-safe API design.",
+      "Learned PostgreSQL database design and complex relational data modeling.",
+      "Gained experience with modern React patterns including Context API, custom hooks, and TanStack Query."
     ]
   },
   {
@@ -94,7 +116,7 @@ const projects = [
     imgSrc: "/villa.webp",
     href: "https://villa-project-112.vercel.app",
     github: "https://github.com/lemon079/Villa-Project",
-    technologies: ["React", "Design", "Animation"],
+    technologies: ["HTML", "CSS", "JS"],
     challenges: [
       "Balancing high-quality imagery with page load performance metrics (Core Web Vitals).",
       "Implementing a custom responsive navbar that transforms smoothly on mobile devices.",

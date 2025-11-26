@@ -38,7 +38,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         style={{ fontFamily: '"Hanken Grotesk", sans-serif' }}
-        className="relative after:content-[''] after:fixed after:bottom-0 after:left-0 after:w-full after:h-30 after:pointer-events-none after:rounded-full after:bg-linear-to-t after:from-black after:to-transparent after:z-50"
+        className="relative after:content-[''] after:fixed after:bottom-0 after:left-0 after:w-full after:h-30 after:pointer-events-none  after:bg-linear-to-t after:from-black after:to-transparent after:z-50"
       >
         <LoadingScreen />
         <LenisProvider />
@@ -51,7 +51,7 @@ export default function RootLayout({
         >
           <Header />
           <main className="bg-black text-white flex flex-col min-h-screen">
-            <div className="min-h-screen max-w-5xl mx-auto bg-transparent px-16 tracking-wide shadow-lg pt-20 flex-1">
+            <div className="min-h-screen max-w-5xl mx-auto bg-transparent px-4 md:px-8 lg:px-16 tracking-wide shadow-lg pt-20 flex-1">
               {children}
             </div>
             <Footer />

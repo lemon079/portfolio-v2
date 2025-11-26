@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import ClickSpark from "@/components/ui/ClickSpark";
 
 interface ClickSparkProviderProps {
@@ -18,6 +20,28 @@ const ClickSparkProvider: React.FC<ClickSparkProviderProps> = ({
   sparkCount = 8,
   duration = 400,
 }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Check if device is mobile (screen width < 768px)
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    // Initial check
+    checkMobile();
+
+    // Listen for resize events
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Don't render ClickSpark on mobile
+  if (isMobile) {
+    return <>{children}</>;
+  }
+
   return (
     <ClickSpark
       sparkColor={sparkColor as string}

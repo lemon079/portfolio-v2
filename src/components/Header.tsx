@@ -3,13 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { Info } from "lucide-react";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 
 export default function Header() {
   const pathname = usePathname();
@@ -17,7 +10,7 @@ export default function Header() {
   const navItems = [
     { name: "Home", path: "/" },
     { name: "About Me", path: "/aboutme" },
-    { name: "Contact", path: "/contact" },
+    // { name: "Contact", path: "/contact" },
   ];
 
   return (
@@ -37,18 +30,6 @@ export default function Header() {
               </Link>
             </li>
           ))}
-          <li>
-            <TooltipProvider delayDuration={0}>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Info className="w-5 h-5 text-gray-400 hover:text-white transition-colors cursor-help" />
-                </TooltipTrigger>
-                <TooltipContent className="bg-text-muted z-60 text-black font-semibold">
-                  <p>Website is not responsive yet</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-          </li>
         </ul>
       </nav>
     </header>

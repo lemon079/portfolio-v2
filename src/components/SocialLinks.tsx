@@ -15,11 +15,11 @@ interface SocialLinksProps {
   className?: string;
 }
 
-export function SocialLinks({ 
-  githubUrl = "https://github.com/yourusername", 
-  linkedinUrl = "https://linkedin.com/in/yourusername", 
-  email = "your.email@gmail.com",
-  className 
+export function SocialLinks({
+  githubUrl = "https://github.com/lemon079",
+  linkedinUrl = "https://www.linkedin.com/in/bilal-tahir-a743a12ab/",
+  email = "bilaltahir079@gmail.com",
+  className
 }: SocialLinksProps) {
 
   const socials = [
@@ -46,18 +46,31 @@ export function SocialLinks({
         {socials.map((social) => (
           <Tooltip key={social.name}>
             <TooltipTrigger asChild>
-              <Link
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(
-                  "transition-colors duration-300",
-                  "text-text-muted hover:text-text-secondary"
-                )}
-                aria-label={`Visit ${social.name}`}
-              >
-                <social.icon size={18} strokeWidth={2} />
-              </Link>
+              {social.name === "Email" ? (
+                <a
+                  href={social.href}
+                  className={cn(
+                    "transition-colors duration-300",
+                    "text-text-muted hover:text-text-secondary"
+                  )}
+                  aria-label={`Visit ${social.name}`}
+                >
+                  <social.icon size={18} strokeWidth={2} />
+                </a>
+              ) : (
+                <Link
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    "transition-colors duration-300",
+                    "text-text-muted hover:text-text-secondary"
+                  )}
+                  aria-label={`Visit ${social.name}`}
+                >
+                  <social.icon size={18} strokeWidth={2} />
+                </Link>
+              )}
             </TooltipTrigger>
             <TooltipContent className="bg-text-muted text-white border-none">
               <p>{social.name}</p>

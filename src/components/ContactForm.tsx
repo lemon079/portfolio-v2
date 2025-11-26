@@ -52,7 +52,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-xl mx-auto">
+    <div className="w-full max-w-xl mx-auto mt-10">
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Name and Email Group */}
         <div className="grid grid-cols-2 gap-4">

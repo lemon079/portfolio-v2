@@ -1,34 +1,60 @@
-
-import { Separator } from "@/components/ui/separator";
+import AboutSection from "@/components/AboutSection";
+import PageHeader from "@/components/PageHeader";
 
 export const metadata = {
   title: "About Me - Bilal Tahir",
   description: "Learn more about my journey, skills, and experience.",
 };
 
+const sections = [
+  {
+    title: "Academic Goals",
+    description: "CGPA: 3.08. Graduating in 2026 with a BSCS degree. I prioritize skill development over grades."
+  },
+  {
+    title: "Who I Am",
+    description: "21-year-old CS student, 7th semester. Focused on becoming a strong full-stack engineer through real projects and modern frameworks."
+  },
+  {
+    title: "Technical Direction",
+    description: "Full-stack development, modern web engineering, and AI integration. Building with MERN, PERN, and experimenting with AI agents."
+  },
+  {
+    title: "Work Ethic & Mindset",
+    description: "Self-driven and proactive. I figure things out independently and stay accountable. Growth over completion."
+  },
+  {
+    title: "Beyond Coding",
+    description: "Calisthenics and self-improvement books keep me disciplined and focused."
+  }
+];
+
 export default function AboutMePage() {
   return (
     <div className="relative w-full pt-20 pb-20">
       {/* Content */}
-      <div className="relative z-10 space-y-5 mb-10 max-w-2xl mx-auto">
-        <h1 className="text-center text-5xl font-bold text-text-primary">
-          About Me
-        </h1>
-        <p className="text-text-secondary text-center text-sm">
-          A glimpse into my journey as a developer.
-        </p>
-        <Separator className="border-text-muted/20 border" />
+      <PageHeader
+        title="About Me"
+        description="A glimpse into my journey as a developer."
+        align="left"
+        image={{
+          src: "/excited-cat.gif",
+          alt: "profile-picture",
+          width: 100,
+          height: 100,
+        }}
+      />
 
-        <div className="prose prose-invert mx-auto mt-10 text-gray-300">
-          <p>
-            I’m Bilal Tahir, a 21-year-old BSCS student currently in my 6th semester, dedicated to building a strong career in full-stack development and modern software engineering. Alongside my university studies, I’ve been consistently self-learning and working on real projects to strengthen my technical abilities.
-          </p>
-          <p>
-            Outside of development, I enjoy calisthenics and reading self-improvement books, both of which help me maintain discipline, clarity, and balance in my daily life.
-          </p>
-          <p>
-            I approach my career with independence and accountability, taking initiative in my learning and consistently exploring new technologies that can elevate my skillset and work quality.
-          </p>
+      <div className="max-w-2xl mx-auto">
+        <div className="prose prose-invert mx-auto mt-10 space-y-8">
+          {sections.map((section) => (
+            <AboutSection
+              key={section.title}
+              title={section.title}
+              description={section.description}
+            />
+          ))}
+
           <p className="italic text-center mt-8 text-text-muted">
             More updates soon...
           </p>
