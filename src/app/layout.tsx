@@ -1,10 +1,18 @@
 import type { Metadata } from "next";
+import { Hanken_Grotesk } from "next/font/google";
 import "../app/globals.css";
 import ClickSparkProvider from "@/components/providers/ClickSparkProvider";
 import LenisProvider from "@/components/providers/LenisProvider";
 import LoadingScreen from "@/components/LoadingScreen";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+
+const hankenGrotesk = Hanken_Grotesk({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
+  variable: "--font-hanken-grotesk",
+});
 
 export const metadata: Metadata = {
   title: "Bilal Tahir - Full Stack Developer & Designer",
@@ -37,8 +45,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        style={{ fontFamily: '"Hanken Grotesk", sans-serif' }}
-        className="relative after:content-[''] after:fixed after:bottom-0 after:left-0 after:w-full after:h-30 after:pointer-events-none  after:bg-linear-to-t after:from-black after:to-transparent after:z-50"
+        className={`${hankenGrotesk.variable} relative after:content-[''] after:fixed after:bottom-0 after:left-0 after:w-full after:h-30 after:pointer-events-none  after:bg-linear-to-t after:from-black after:to-transparent after:z-50`}
+        style={{ fontFamily: 'var(--font-hanken-grotesk), sans-serif' }}
       >
         <LoadingScreen />
         <LenisProvider />
@@ -50,8 +58,8 @@ export default function RootLayout({
           duration={400}
         >
           <Header />
-          <main className="bg-black text-white flex flex-col min-h-screen">
-            <div className="min-h-screen max-w-5xl mx-auto bg-transparent px-4 md:px-8 lg:px-16 tracking-wide shadow-lg pt-20 flex-1">
+          <main className="bg-black text-white flex flex-col">
+            <div className="min-h-screen max-w-4xl mx-auto bg-transparent px-4 md:px-8 lg:px-16 tracking-wide shadow-lg pt-20 flex-1">
               {children}
             </div>
             <Footer />

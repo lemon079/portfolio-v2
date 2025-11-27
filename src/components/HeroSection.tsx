@@ -26,7 +26,7 @@ const HeroSection = ({
           width={128}
           height={128}
           className="rounded-full"
-          loading="eager"
+          priority
         />
 
         <div className="space-y-4">
@@ -36,7 +36,10 @@ const HeroSection = ({
               {title}
             </span>
           </h1>
-          <p className="text-sm md:text-base text-text-muted max-w-md">{description}</p>
+          <p className="text-sm md:text-base text-text-muted max-w-md">
+            {description}
+          </p>
+
           <SocialLinks
             githubUrl="https://github.com/lemon079"
             linkedinUrl="https://www.linkedin.com/in/bilal-tahir-a743a12ab/"
@@ -44,18 +47,23 @@ const HeroSection = ({
           />
         </div>
 
-        <div className="relative ml-auto ">
+        <div className="relative ml-auto">
+          {/* Cat animation shouldn't block render */}
           <Image
             unoptimized
-            src={"/cat.gif"}
-            alt="profile-picture"
-            width={125}
-            height={125}
+            src="/cat.gif"
+            alt="cat-gif"
+            width={96}
+            height={96}
             className="absolute -top-16"
+            loading="lazy"
           />
 
           <Link
-            href={(process.env.RESUME_LINK as string) || "https://drive.google.com/file/d/1zI6jC8b5VVV_0l84DFfxniXc1wJfCT_E/view?usp=sharing"}
+            href={
+              (process.env.RESUME_LINK as string) ||
+              "https://drive.google.com/file/d/1zI6jC8b5VVV_0l84DFfxniXc1wJfCT_E/view?usp=sharing"
+            }
             target="_blank"
             rel="noopener noreferrer"
             className="border border-text-muted p-2 rounded-xl border-dotted font-bold relative z-10"
@@ -67,29 +75,24 @@ const HeroSection = ({
 
       {/* Mobile Layout */}
       <div className="sm:hidden space-y-6">
-        {/* Top Row: PFP on left, Cat + Resume on right */}
-        <div className="flex items-center justify-between">
-          <Image
-            src={imageUrl}
-            alt="profile-picture"
-            width={100}
-            height={100}
-            className="rounded-full"
-            loading="eager"
-            style={{ transform: 'translateZ(0)' }}
-          />
-
+        {/* Cat + Resume only */}
+        <div className="flex items-center justify-end">
           <div className="relative flex flex-col self-end">
             <Image
-              unoptimized
-              src={"/cat.gif"}
+              priority={false}
+              fetchPriority="low"
+              src="/cat.gif"
               alt="cat-gif"
               width={80}
               height={80}
-              className="absolute -top-14"
+              className="absolute -top-12"
+              loading="lazy"
             />
             <Link
-              href={(process.env.RESUME_LINK as string) || "https://drive.google.com/file/d/1zI6jC8b5VVV_0l84DFfxniXc1wJfCT_E/view?usp=sharing"}
+              href={
+                (process.env.RESUME_LINK as string) ||
+                "https://drive.google.com/file/d/1zI6jC8b5VVV_0l84DFfxniXc1wJfCT_E/view?usp=sharing"
+              }
               target="_blank"
               rel="noopener noreferrer"
               className="border border-text-muted p-2 rounded-xl border-dotted font-bold"
@@ -99,7 +102,6 @@ const HeroSection = ({
           </div>
         </div>
 
-        {/* Bottom: Title, Description, Social Links */}
         <div className="space-y-4">
           <h1 className="text-xl text-text-primary mb-2">
             {name} —{" "}
@@ -107,7 +109,9 @@ const HeroSection = ({
               {title}
             </span>
           </h1>
+
           <p className="text-sm text-text-muted">{description}</p>
+
           <SocialLinks
             githubUrl="https://github.com/lemon079"
             linkedinUrl="https://www.linkedin.com/in/bilal-tahir-a743a12ab/"

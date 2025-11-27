@@ -45,38 +45,35 @@ export default function ProjectCard({
               overflow-hidden 
               rounded-t-xl
               bg-linear-to-br 
-              from-red-500 
-              to-blue-500
+              from-accent-rose 
+              to-accent-blue
               rounded-b-4xl
               shadow-xl
               shadow-text-muted/30
               shrink-0
             "
+            style={{ aspectRatio: '4/3.5' }}
           >
             <Image
               src={imgSrc}
               alt={heading}
               width={400}
-              height={350}
+              height={300}
               className="
-                absolute 
-                left-1/2 
-                -bottom-20
-                -translate-x-1/2
-                object-contain
-                w-[85%]
-                h-full
-                transition-all
+              rounded-t-xl
+                absolute
+                top-[90%]
+                left-1/2
+                transition-transform
                 duration-500
                 ease-out
-                rotate-10
-                scale-95
+                -translate-x-1/2
+                group-hover:-translate-y-[80%]
+                rotate-35
                 group-hover:rotate-0
-                group-hover:-bottom-10
-                group-hover:scale-105
-                group-hover:-translate-y-4
-                drop-shadow-xl
               "
+              priority
+              style={{ objectFit: 'cover' }}
             />
           </div>
         )}

@@ -43,7 +43,8 @@ export default function PageHeader({
                         </p>
                     </div>
                     <Image
-                        unoptimized
+                        priority={false}
+                        fetchPriority="low"
                         src={image.src}
                         alt={image.alt}
                         width={image.width || 100}
