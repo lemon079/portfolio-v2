@@ -1,7 +1,16 @@
+"use client";
+
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { ArrowUpRight, ArrowRight, Github } from "lucide-react";
 import Link from "next/link";
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+// Register GSAP plugins
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 interface ProjectCardProps {
   heading: string;
@@ -22,8 +31,32 @@ export default function ProjectCard({
   github,
   technologies = [],
 }: ProjectCardProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
+
+  useGSAP(() => {
+    // Check if device supports hover (desktop) - if so, skip scroll animation
+    const hasHover = window.matchMedia("(hover: hover)").matches;
+
+    if (hasHover || !imageRef.current || !cardRef.current) return;
+
+    // On touch devices, animate image into view on scroll
+    gsap.to(imageRef.current, {
+      y: "-80%",
+      rotation: 0,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: cardRef.current,
+        start: "top 80%",
+        end: "top 30%",
+        scrub: 0.5,
+      },
+    });
+  }, { scope: cardRef });
+
   return (
     <Card
+      ref={cardRef}
       className="
         group 
         relative 
@@ -54,27 +87,33 @@ export default function ProjectCard({
             "
             style={{ aspectRatio: '4/3.5' }}
           >
-            <Image
-              src={imgSrc}
-              alt={heading}
-              width={400}
-              height={300}
+            <div
+              ref={imageRef}
               className="
-              rounded-t-xl
                 absolute
+                w-full
                 top-[90%]
                 left-1/2
-                transition-transform
-                duration-500
-                ease-out
                 -translate-x-1/2
-                group-hover:-translate-y-[80%]
                 rotate-35
-                group-hover:rotate-0
+                md:rotate-35
+                md:transition-transform
+                md:duration-500
+                md:ease-out
+                md:group-hover:-translate-y-[80%]
+                md:group-hover:rotate-0
               "
-              priority
-              style={{ objectFit: 'cover' }}
-            />
+            >
+              <Image
+                src={imgSrc}
+                alt={heading}
+                width={600}
+                height={450}
+                className="rounded-t-xl w-full"
+                priority
+                style={{ objectFit: 'cover' }}
+              />
+            </div>
           </div>
         )}
 

@@ -10,7 +10,7 @@ const page = () => {
       <HeroSection
         imageUrl="/pfp-animated.svg"
         name="Bilal Tahir"
-        title="Full stack developer"
+        title="Full stack AI Engineer"
         description="I apply rigorous critical thinking to design scalable, reliable systems, and I continuously upskill to stay relevant in the rapidly evolving AI landscape."
       />
 
